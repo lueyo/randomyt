@@ -69,17 +69,17 @@
         const path = rawPath.startsWith('/') ? rawPath.slice(1) : rawPath;
 
 
-        if (path === '/create' || path === '/search' || path === '/history') {
+        if (rawPath === '/create' || rawPath === '/search' || rawPath === '/history') {
             window.location.href = `https://randomyt.lueyo.es/?p=${path}`
         }
-        else if (path === '/create/' || path === '/search/' || path === '/history/') {
+        else if (rawPath === '/create/' || rawPath === '/search/' || rawPath === '/history/') {
             //trunca el "/"
             const truncatedPath = path.slice(0, -1);
             window.location.href = `https://randomyt.lueyo.es/?p=${truncatedPath}`
         }
 
-        else if (path.startsWith('/search')) {
-            const params = path.split('/search')[1];
+        else if (rawPath.startsWith('/search')) {
+            const params = rawPath.split('/search')[1];
             // reemplace ? por & para que funcione la query
             const query = params.replace('?', '&');
             window.location.href = `https://randomyt.lueyo.es/?p=search${query}`
