@@ -64,7 +64,10 @@
     <div class="spinner"></div>
 
     <script>
-        const path = window.location.pathname;
+        const rawPath = window.location.pathname;
+        // tienes que truncar el "/" del inicio
+        const path = rawPath.startsWith('/') ? rawPath.slice(1) : rawPath;
+
 
         if (path === '/create' || path === '/search' || path === '/history') {
             window.location.href = `https://randomyt.lueyo.es/?p=${path}`
